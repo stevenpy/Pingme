@@ -26,6 +26,12 @@ class PingsController < ApplicationController
 		redirect_to(ping_path(@ping))
 	end
 
+	def destroy
+		@ping = Ping.find(params[:id])
+		@ping.destroy
+		redirect_to pings_path
+	end
+
 	private
 
 	def ping_params

@@ -3,4 +3,5 @@
   <%= f.input :caption %>
   <%= f.button :submit %>
   <%= image_tag @ping.image.url(:medium) %>
+  <%= link_to "Delete Ping", ping_path(@ping), method: :delete, data: { confirm: "Are you sure you want to delete this ping?" } %>
 <% end %>
