@@ -16,6 +16,16 @@ class PingsController < ApplicationController
 		@ping = Ping.find(params[:id])
 	end
 
+	def edit
+		@ping = Ping.find(params[:id])
+	end
+
+	def update
+		@ping = Ping.find(params[:id])
+		@ping.update(ping_params)
+		redirect_to(ping_path(@ping))
+	end
+
 	private
 
 	def ping_params
