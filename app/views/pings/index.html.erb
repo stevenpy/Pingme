@@ -1,1 +1,7 @@
 <h1>Ping List</h1>
+
+	<% @pings.each do |ping| %>
+		<%= image_tag ping.image.url(:medium) %>
+		<br>
+		<%= ping.caption %>
+  <% end %>
