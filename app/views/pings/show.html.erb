@@ -1,0 +1,9 @@
+<div class="image center-block">
+  <%= image_tag @ping.image.url(:medium) %>
+</div>
+<p class="caption">
+  <%= @ping.caption %>
+</p>
+<div class="text-center">
+  <%= link_to "Cancel", pings_path %>
+</div>

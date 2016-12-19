@@ -12,6 +12,9 @@ class PingsController < ApplicationController
 		redirect_to pings_path
 	end
 
+	def show
+		@ping = Ping.find(params[:id])
+	end
 
 	private
 
