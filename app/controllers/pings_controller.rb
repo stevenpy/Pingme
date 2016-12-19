@@ -1,4 +1,6 @@
 class PingsController < ApplicationController
+	before_action :set_ping, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@pings = Ping.all
 	end
@@ -8,28 +10,30 @@ class PingsController < ApplicationController
 	end
 	
 	def create
-		@ping = Ping.create(ping_params)
-		redirect_to pings_path
+		if @ping = Ping.create(ping_params)
+			redirect_to pings_path
+		else
+			render :new
+		end
 	end
 
 	def show
-		@ping = Ping.find(params[:id])
 	end
 
 	def edit
-		@ping = Ping.find(params[:id])
 	end
 
 	def update
-		@ping = Ping.find(params[:id])
-		@ping.update(ping_params)
-		redirect_to(ping_path(@ping))
+		if @ping.update(ping_params)
+			redirect_to pings_path
+		else
+			render :edit
+		end
 	end
 
 	def destroy
-		@ping = Ping.find(params[:id])
 		@ping.destroy
-		redirect_to pings_path
+		redirect_to root_path
 	end
 
 	private
@@ -37,4 +41,8 @@ class PingsController < ApplicationController
 	def ping_params
 		params.require(:ping).permit(:image, :caption)
 	end
+
+	def set_ping
+    @ping = Ping.find(params[:id])
+  end
 end
