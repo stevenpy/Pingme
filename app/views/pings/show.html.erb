@@ -7,9 +7,15 @@
 <p>
   <%= @ping.caption %>
 </p>
-<div>
-  <%= link_to "Edit", edit_ping_path(@ping) %>
-</div>
-<div>
-  <%= link_to "Cancel", pings_path %>
-</div>
+<% if @ping.user.id == current_user.id %>
+	<div>
+  	<%= link_to "Edit", edit_ping_path(@ping) %>
+	</div>
+	<div>
+  	<%= link_to "Cancel", pings_path %>
+	</div>
+<% else %>
+	<div>
+  	<%= link_to "Cancel", pings_path %>
+	</div>
+<% end %>

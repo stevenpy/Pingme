@@ -1,5 +1,6 @@
 class PingsController < ApplicationController
 	before_action :set_ping, only: [:show, :edit, :update, :destroy]
+	before_action :owned_post, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!
 
 	def index
@@ -12,7 +13,7 @@ class PingsController < ApplicationController
 	
 	def create
 		@ping = current_user.pings.build(ping_params)
-		
+
 		if @ping.save
 			redirect_to pings_path
 		else
@@ -48,4 +49,11 @@ class PingsController < ApplicationController
 	def set_ping
     @ping = Ping.find(params[:id])
   end
+
+  def owned_post  
+  	unless current_user == @ping.user
+    	flash[:alert] = "That post doesn't belong to you!"
+    	redirect_to root_path
+  	end
+	end 
 end
