@@ -31,12 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # Use Paperclip to upload image
 gem "paperclip", "~> 5.0.0"
-
 # Use simple_form
 gem 'simple_form'
-
 # Use Devise
 gem 'devise'
+# Use materialize sass
+gem 'materialize-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

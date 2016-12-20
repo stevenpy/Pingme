@@ -1,6 +1,6 @@
 <h1>Ping List</h1>
 <% @pings.each do |ping| %>
-	<%= link_to (image_tag ping.image.url(:medium)), ping_path(ping) %>
-	<br>
-	<%= ping.caption %>
+	<div><%= ping.user.user_name %></div>
+	<div><%= link_to (image_tag ping.image.url(:medium)), ping_path(ping) %></div>
+	<p><%= ping.caption %></p>
 <% end %>

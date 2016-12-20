@@ -1,12 +1,15 @@
-<div class="image center-block">
+<div>
+  <%= @ping.user.user_name %>
+</div>
+<div>
   <%= image_tag @ping.image.url(:medium) %>
 </div>
-<p class="caption">
+<p>
   <%= @ping.caption %>
 </p>
-<div class="text-center">
+<div>
   <%= link_to "Edit", edit_ping_path(@ping) %>
 </div>
-<div class="text-center">
+<div>
   <%= link_to "Cancel", pings_path %>
 </div>

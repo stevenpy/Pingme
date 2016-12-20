@@ -7,11 +7,13 @@ class PingsController < ApplicationController
 	end
 
 	def new
-		@ping = Ping.new
+		@ping = current_user.pings.build
 	end
 	
 	def create
-		if @ping = Ping.create(ping_params)
+		@ping = current_user.pings.build(ping_params)
+		
+		if @ping.save
 			redirect_to pings_path
 		else
 			render :new
