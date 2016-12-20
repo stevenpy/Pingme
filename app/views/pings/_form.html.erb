@@ -1,5 +1,27 @@
-<%= simple_form_for @ping do |f| %>
-  <%= f.input :image %>
-  <%= f.input :caption %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+	<%= simple_form_for @ping do |f| %>
+    <div class="row">
+      <div class="input-field col s4">
+	      <%= f.input :caption, input_html: { class: 'validate' } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <div class="file-field input-field">
+		      <div class="btn">
+		        <span>File</span>
+		        <%= f.input :image, label: false, input_html: { type: 'file' } %>
+		      </div>
+		      <div class="file-path-wrapper">
+		      	<%= f.input :image, placeholder: 'Upload something !', label: false, input_html: { class: 'file-path', type: 'text' }, disabled: true %>
+		      </div>
+		    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4">
+	      <%= f.button :submit, class: "btn waves-effect waves-light" %>
+      </div>
+    </div>
+  <% end %>
+</div>
