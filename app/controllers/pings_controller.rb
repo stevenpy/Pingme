@@ -1,5 +1,6 @@
 class PingsController < ApplicationController
 	before_action :set_ping, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 
 	def index
 		@pings = Ping.all
