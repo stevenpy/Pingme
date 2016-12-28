@@ -1,21 +1,12 @@
-<div>
-  <%= @ping.user.user_name %>
-</div>
-<div>
-  <%= image_tag @ping.image.url(:medium) %>
-</div>
-<p>
-  <%= @ping.caption %>
-</p>
+<%= render 'ping', ping: @ping %>
 <% if @ping.user.id == current_user.id %>
-	<div>
-  	<%= link_to "Edit", edit_ping_path(@ping) %>
-	</div>
-	<div>
-  	<%= link_to "Cancel", pings_path %>
-	</div>
+  <div class="text-center edit-links">
+    <%= link_to "Cancel", pings_path %>
+    |
+    <%= link_to "Edit Post", edit_ping_path(@ping) %>
+  </div>
 <% else %>
-	<div>
-  	<%= link_to "Cancel", pings_path %>
-	</div>
+  <div class="text-center edit-links">
+    <%= link_to "Cancel", pings_path %>
+  </div>
 <% end %>

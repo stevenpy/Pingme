@@ -35,8 +35,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 # Use Devise
 gem 'devise'
-# Use materialize sass
-gem 'materialize-sass'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

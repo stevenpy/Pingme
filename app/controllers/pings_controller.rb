@@ -15,8 +15,10 @@ class PingsController < ApplicationController
 		@ping = current_user.pings.build(ping_params)
 
 		if @ping.save
+			flash[:success] = "Your ping has been created!"
 			redirect_to pings_path
 		else
+			flash.now[:alert] = "Your new ping couldn't be created!"
 			render :new
 		end
 	end
@@ -29,8 +31,10 @@ class PingsController < ApplicationController
 
 	def update
 		if @ping.update(ping_params)
+			flash[:success] = "Ping updated."
 			redirect_to pings_path
 		else
+			flash.now[:alert] = "Update failed.  Please check the form."
 			render :edit
 		end
 	end
@@ -52,7 +56,7 @@ class PingsController < ApplicationController
 
   def owned_post  
   	unless current_user == @ping.user
-    	flash[:alert] = "That post doesn't belong to you!"
+    	flash[:alert] = "That ping doesn't belong to you!"
     	redirect_to root_path
   	end
 	end 
