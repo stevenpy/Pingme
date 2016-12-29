@@ -5,6 +5,9 @@
       <div class="user-name">
         <%= ping.user.user_name %>
       </div>
+      <div class="time-ago">
+        <%= time_ago_in_words ping.created_at %>
+      </div>
     </div>
     <div class="image center-block">
       <%= link_to (image_tag ping.image.url(:medium), class:'img-responsive'), ping_path(ping) %>
