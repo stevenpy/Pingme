@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy  
+  def destroy
     @comment = @ping.comments.find(params[:id])
     if @comment.user_id == current_user.id
       @comment.delete
@@ -29,11 +29,11 @@ class CommentsController < ApplicationController
 
   private
 
-  def comment_params  
+  def comment_params
     params.require(:comment).permit(:content)
   end
 
-  def set_post  
+  def set_post
     @ping = Ping.find(params[:ping_id])
   end
 end

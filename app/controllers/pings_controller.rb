@@ -10,7 +10,7 @@ class PingsController < ApplicationController
 	def new
 		@ping = current_user.pings.build
 	end
-	
+
 	def create
 		@ping = current_user.pings.build(ping_params)
 
@@ -54,10 +54,10 @@ class PingsController < ApplicationController
     @ping = Ping.find(params[:id])
   end
 
-  def owned_post  
+  def owned_post
   	unless current_user == @ping.user
     	flash[:alert] = "That ping doesn't belong to you!"
     	redirect_to root_path
   	end
-	end 
+	end
 end
