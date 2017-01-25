@@ -1,6 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_post
 
+  def index
+    @comments = @ping.comments.order("created_at ASC")
+
+    respond_to do |format|
+      format.html { render layout: !request.xhr? }
+    end
+  end
+
   def create
     @comment = @ping.comments.build(comment_params)
     @comment.user_id = current_user.id
