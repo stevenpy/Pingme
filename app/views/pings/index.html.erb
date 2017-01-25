@@ -1,3 +1,6 @@
-<% @pings.each do |ping| %>
-  <%= render 'ping', ping: ping %>
-<% end %>
+<div id="posts">
+  <%= render 'pings' %>
+</div>
+<div class="text-center" id="paginator">
+  <%= link_to_next_page @pings, 'LOAD MORE', remote: true, id: 'load_more' %>
+</div>

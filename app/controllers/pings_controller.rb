@@ -4,7 +4,7 @@ class PingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pings = Ping.all
+    @pings = Ping.all.order('created_at DESC').page params[:page]
   end
 
   def new
