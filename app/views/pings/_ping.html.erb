@@ -15,7 +15,7 @@
     <div class="post-bottom">
       <div class="caption">
         <div class="user-name">
-          <%= ping.user.user_name %>
+          <%= link_to ping.user.user_name, profile_path(ping.user.user_name) %>
         </div>
         <%= ping.caption %>
       </div>
