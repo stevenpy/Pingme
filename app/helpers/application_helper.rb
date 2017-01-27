@@ -13,4 +13,10 @@ module ApplicationHelper
                    class: 'img-responsive' if ping.image.exists?
     image_tag 'placeholder.png', id: 'image-preview', class: 'img-responsive'
   end
+
+  def profile_avatar_select(user)
+    return image_tag user.avatar.url(:medium), id: 'image-preview',
+                   class: 'img-responsive img-circle profile-image' if user.avatar.exists?
+    image_tag 'placeholder.png', id: 'image-preview', class: 'img-responsive img-circle profile-image'
+  end
 end
