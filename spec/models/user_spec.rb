@@ -5,9 +5,9 @@ describe User do
     expect(FactoryGirl.create(:user)).to be_valid
   end
   it "is invalid without a username" do
-    FactoryGirl.build(:user, user_name: nil).should_not be_valid
+    expect(FactoryGirl.build(:user, user_name: nil)).to_not be_valid
   end
   it "is invalid without an email" do
-    FactoryGirl.build(:user, email: nil).should_not be_valid
+    expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
   end
 end
