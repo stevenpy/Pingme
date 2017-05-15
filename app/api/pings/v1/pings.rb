@@ -38,6 +38,15 @@ module Ping
 
           present ping
         end
+
+        desc "Delete ping"
+        params do
+          requires :id, type: Integer, desc: "Ping id"
+        end
+        delete ':id' do
+          ping = Ping.find(params[:id])
+          ping.destroy
+        end
       end
     end
   end
